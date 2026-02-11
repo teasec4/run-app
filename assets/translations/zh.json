@@ -1,0 +1,23 @@
+{
+  "app_title": "跑步应用",
+  "navigation": {
+    "home": "主页",
+    "map": "地图",
+    "settings": "设置"
+  },
+  "stats": {
+    "level": "等级",
+    "experience": "经验值",
+    "steps": "步数",
+    "calories": "卡路里"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "english": "English",
+    "chinese": "中文",
+    "theme": "主题",
+    "dark_mode": "深色模式",
+    "light_mode": "浅色模式"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "app_title": "Running App",
+  "navigation": {
+    "home": "Home",
+    "map": "Map",
+    "settings": "Settings"
+  },
+  "stats": {
+    "level": "LEVEL",
+    "experience": "XP",
+    "steps": "STEPS",
+    "calories": "CALORIES"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "english": "English",
+    "chinese": "中文",
+    "theme": "Theme",
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode"
+  }
+}
