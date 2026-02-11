@@ -53,6 +53,5 @@ app.*.map.json
 /web/
 .metadata
 analysis_options.yaml
-README.md
 *.iml
 running_app.iml

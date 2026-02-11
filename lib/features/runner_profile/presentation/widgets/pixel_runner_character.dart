@@ -41,97 +41,106 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
       height: widget.size,
       child: Stack(
         children: [
-          // Background gradient
+          // Light background
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [
-                    Colors.blue.withValues(alpha: 0.25),
-                    Colors.blue.withValues(alpha: 0.08),
-                  ],
-                  radius: 0.8,
-                ),
+                color: Colors.white.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(24),
               ),
             ),
           ),
 
-          // Head (rounded)
+          // Head with Hair (fully rounded circle)
           Positioned(
             top: unit * 0.5,
             left: unit * 4.5,
-            child: Container(
-              width: unit * 3,
-              height: unit * 3,
-              decoration: BoxDecoration(
-                color: AppColors.characterSkin,
-                border: Border.all(color: AppColors.primaryDark, width: 1),
-                borderRadius: BorderRadius.circular(unit * 0.3),
-              ),
-              child: Stack(
-                children: [
-                  // Left Eye
-                  Positioned(
-                    top: unit * 0.7,
-                    left: unit * 0.5,
-                    child: Container(
-                      width: unit * 0.6,
-                      height: unit * 0.6,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(unit * 0.2),
-                      ),
-                      child: Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Hair (darker, larger circle)
+                Container(
+                  width: unit * 3.3,
+                  height: unit * 3.3,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xFF8B6F47),
+                  ),
+                ),
+                // Face (skin tone circle)
+                Container(
+                  width: unit * 3,
+                  height: unit * 3,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.characterSkin,
+                    border: Border.all(color: AppColors.primaryDark, width: 1),
+                  ),
+                  child: Stack(
+                    children: [
+                      // Left Eye
+                      Positioned(
+                        top: unit * 0.7,
+                        left: unit * 0.5,
                         child: Container(
-                          width: unit * 0.3,
+                          width: unit * 0.6,
+                          height: unit * 0.6,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: unit * 0.3,
+                              height: unit * 0.3,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Right Eye
+                      Positioned(
+                        top: unit * 0.7,
+                        right: unit * 0.5,
+                        child: Container(
+                          width: unit * 0.6,
+                          height: unit * 0.6,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: unit * 0.3,
+                              height: unit * 0.3,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Mouth
+                      Positioned(
+                        bottom: unit * 0.4,
+                        left: unit * 1,
+                        right: unit * 1,
+                        child: Container(
                           height: unit * 0.3,
                           decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: AppColors.primaryDark,
                             borderRadius: BorderRadius.circular(unit * 0.15),
                           ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  // Right Eye
-                  Positioned(
-                    top: unit * 0.7,
-                    right: unit * 0.5,
-                    child: Container(
-                      width: unit * 0.6,
-                      height: unit * 0.6,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(unit * 0.2),
-                      ),
-                      child: Center(
-                        child: Container(
-                          width: unit * 0.3,
-                          height: unit * 0.3,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(unit * 0.15),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Mouth
-                  Positioned(
-                    bottom: unit * 0.4,
-                    left: unit * 1,
-                    right: unit * 1,
-                    child: Container(
-                      height: unit * 0.3,
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryDark,
-                        borderRadius: BorderRadius.circular(unit * 0.15),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
 
@@ -237,11 +246,12 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Shorts
                 Container(
                   width: unit * 0.9,
-                  height: unit * 2.8,
+                  height: unit * 1.2,
                   decoration: BoxDecoration(
-                    color: AppColors.characterPants,
+                    color: Color(0xFFE74C3C),
                     border: Border.all(
                       color: AppColors.primaryDark,
                       width: 0.5,
@@ -249,6 +259,20 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
                     borderRadius: BorderRadius.circular(unit * 0.25),
                   ),
                 ),
+                // Leg
+                Container(
+                  width: unit * 0.9,
+                  height: unit * 1.6,
+                  decoration: BoxDecoration(
+                    color: AppColors.characterSkin,
+                    border: Border.all(
+                      color: AppColors.primaryDark,
+                      width: 0.5,
+                    ),
+                    borderRadius: BorderRadius.circular(unit * 0.25),
+                  ),
+                ),
+                // Shoe
                 Container(
                   width: unit * 1.3,
                   height: unit * 0.8,
@@ -272,11 +296,12 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Shorts
                 Container(
                   width: unit * 0.9,
-                  height: unit * 2.8,
+                  height: unit * 1.2,
                   decoration: BoxDecoration(
-                    color: AppColors.characterPants,
+                    color: Color(0xFFE74C3C),
                     border: Border.all(
                       color: AppColors.primaryDark,
                       width: 0.5,
@@ -284,6 +309,20 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
                     borderRadius: BorderRadius.circular(unit * 0.25),
                   ),
                 ),
+                // Leg
+                Container(
+                  width: unit * 0.9,
+                  height: unit * 1.6,
+                  decoration: BoxDecoration(
+                    color: AppColors.characterSkin,
+                    border: Border.all(
+                      color: AppColors.primaryDark,
+                      width: 0.5,
+                    ),
+                    borderRadius: BorderRadius.circular(unit * 0.25),
+                  ),
+                ),
+                // Shoe
                 Container(
                   width: unit * 1.3,
                   height: unit * 0.8,
