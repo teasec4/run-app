@@ -11,6 +11,37 @@
     "steps": "STEPS",
     "calories": "CALORIES"
   },
+  "achievements": {
+    "title": "Achievements",
+    "first_steps": "First Steps",
+    "marathon_runner": "Marathon Runner",
+    "speed_demon": "Speed Demon",
+    "mountain_climber": "Mountain Climber",
+    "unlocked": "✓ Got it",
+    "locked": "Locked"
+  },
+  "challenges": {
+    "title": "Challenges",
+    "walk_10km": "Walk 10km Today",
+    "burn_500_cal": "Burn 500 Calories",
+    "7days_streak": "7 Days Streak"
+  },
+  "map": {
+    "title": "Map",
+    "current_location": "Current Location",
+    "coming_soon": "Map Coming Soon",
+    "todays_route": "Today's Route",
+    "distance": "Distance",
+    "duration": "Duration",
+    "avg_speed": "Avg Speed",
+    "saved_routes": "Saved Routes",
+    "golden_gate": "Golden Gate Park Loop",
+    "bay_bridge": "Bay Bridge Crossing",
+    "marina_district": "Marina District Run",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

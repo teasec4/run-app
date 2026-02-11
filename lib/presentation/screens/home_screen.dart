@@ -6,6 +6,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const RunnerProfileScreen();
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 16),
+              child: const RunnerProfileScreen(),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
