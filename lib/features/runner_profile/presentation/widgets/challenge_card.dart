@@ -56,39 +56,25 @@ class _ChallengeCardState extends State<ChallengeCard>
           width: 110,
           margin: const EdgeInsets.only(right: 12),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Colors.blue[100]!,
-                Colors.cyan[50]!,
-              ],
+              colors: [Colors.blue[50]!, Colors.cyan[100]!],
             ),
-            border: Border.all(
-              color: Colors.blue[200]!,
-              width: 1,
-            ),
+            border: Border.all(color: Colors.blue[300]!, width: 1.5),
             boxShadow: [
               BoxShadow(
-                color: Colors.blue.withValues(alpha: 0.1),
+                color: Colors.blue.withValues(alpha: 0.12),
                 blurRadius: 16,
-                offset: const Offset(0, 8),
-              ),
-              BoxShadow(
-                color: Colors.blue.withValues(alpha: 0.05),
-                blurRadius: 8,
-                offset: const Offset(0, 2),
+                offset: const Offset(0, 6),
               ),
             ],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                widget.icon,
-                style: const TextStyle(fontSize: 40),
-              ),
+              Text(widget.icon, style: const TextStyle(fontSize: 40)),
               const SizedBox(height: 12),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -115,22 +101,19 @@ class _ChallengeCardState extends State<ChallengeCard>
                     Stack(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            height: 6,
-                            color: Colors.blue[100],
-                          ),
+                          borderRadius: BorderRadius.circular(6),
+                          child: Container(height: 6, color: Colors.blue[100]),
                         ),
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(6),
                           child: LinearProgressIndicator(
                             value: widget.progress,
                             minHeight: 6,
                             backgroundColor: Colors.transparent,
                             valueColor: AlwaysStoppedAnimation<Color>(
                               isCompleted
-                                  ? Colors.green[600]!
-                                  : Colors.blue[600]!,
+                                  ? Colors.green[500]!
+                                  : Colors.blue[500]!,
                             ),
                           ),
                         ),

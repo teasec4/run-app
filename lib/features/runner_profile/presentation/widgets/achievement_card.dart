@@ -53,42 +53,24 @@ class _AchievementCardState extends State<AchievementCard>
           width: 110,
           margin: const EdgeInsets.only(right: 12),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: widget.isUnlocked
-                  ? [
-                      Colors.amber[100]!,
-                      Colors.orange[50]!,
-                    ]
-                  : [
-                      Colors.grey[100]!,
-                      Colors.grey[50]!,
-                    ],
+                  ? [Colors.amber[50]!, Colors.orange[100]!]
+                  : [Colors.grey[50]!, Colors.grey[100]!],
             ),
             border: Border.all(
-              color: widget.isUnlocked
-                  ? Colors.amber[200]!
-                  : Colors.grey[200]!,
-              width: 1,
+              color: widget.isUnlocked ? Colors.amber[300]! : Colors.grey[300]!,
+              width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
                 color: (widget.isUnlocked ? Colors.amber : Colors.grey)
-                    .withValues(
-                  alpha: 0.1,
-                ),
+                    .withValues(alpha: 0.12),
                 blurRadius: 16,
-                offset: const Offset(0, 8),
-              ),
-              BoxShadow(
-                color: (widget.isUnlocked ? Colors.amber : Colors.grey)
-                    .withValues(
-                  alpha: 0.05,
-                ),
-                blurRadius: 8,
-                offset: const Offset(0, 2),
+                offset: const Offset(0, 6),
               ),
             ],
           ),
@@ -98,10 +80,7 @@ class _AchievementCardState extends State<AchievementCard>
               AnimatedOpacity(
                 opacity: widget.isUnlocked ? 1.0 : 0.4,
                 duration: const Duration(milliseconds: 200),
-                child: Text(
-                  widget.icon,
-                  style: const TextStyle(fontSize: 44),
-                ),
+                child: Text(widget.icon, style: const TextStyle(fontSize: 44)),
               ),
               const SizedBox(height: 12),
               Padding(
@@ -123,24 +102,26 @@ class _AchievementCardState extends State<AchievementCard>
               const SizedBox(height: 10),
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
                 decoration: BoxDecoration(
                   color: widget.isUnlocked
-                      ? Colors.green[50]
+                      ? Colors.green[100]
                       : Colors.grey[100],
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(6),
                   border: Border.all(
                     color: widget.isUnlocked
-                        ? Colors.green[200]!
-                        : Colors.grey[200]!,
+                        ? Colors.green[300]!
+                        : Colors.grey[300]!,
                     width: 1,
                   ),
                 ),
                 child: Text(
                   widget.isUnlocked ? '✓' : '🔒',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeight.bold,
                     color: widget.isUnlocked
                         ? Colors.green[700]

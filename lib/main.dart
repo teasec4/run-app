@@ -9,20 +9,20 @@ import 'core/localization/app_localizations.dart';
 import 'core/localization/locale_bloc.dart';
 import 'core/localization/locale_event.dart';
 import 'core/localization/locale_state.dart';
+import 'core/di/service_locator.dart';
 import 'presentation/app.dart';
 import 'presentation/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => LocaleBloc()..add(const InitLocaleEvent()),
+          create: (_) => getIt<LocaleBloc>()..add(const InitLocaleEvent()),
         ),
-        BlocProvider(
-          create: (_) => ThemeBloc()..add(const InitThemeEvent()),
-        ),
+        BlocProvider(create: (_) => ThemeBloc()..add(const InitThemeEvent())),
       ],
       child: const MyApp(),
     ),
@@ -48,8 +48,7 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               theme: AppTheme.lightTheme(),
               darkTheme: AppTheme.darkTheme(),
-              themeMode:
-                  themeState.isDark ? ThemeMode.dark : ThemeMode.light,
+              themeMode: themeState.isDark ? ThemeMode.dark : ThemeMode.light,
               localizationsDelegates: [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,

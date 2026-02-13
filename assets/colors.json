@@ -1,0 +1,53 @@
+{
+  "primary": {
+    "primary": "#FF8C00",
+    "primaryDark": "#E67E00",
+    "primaryLight": "#FFB84D",
+    "primaryVeryLight": "#FFF3E0"
+  },
+  "accent": {
+    "accent": "#FFA726",
+    "accentLight": "#FFCC80",
+    "gold": "#FFB74D"
+  },
+  "background": {
+    "background": "#FAF8F3",
+    "surface": "#FFFFFF",
+    "surfaceDark": "#1A1714",
+    "surfaceDarkSecondary": "#2C2420"
+  },
+  "text": {
+    "textPrimary": "#212121",
+    "textSecondary": "#757575",
+    "textHint": "#BDBDBD",
+    "textLight": "#FFFFFF"
+  },
+  "gameStats": {
+    "levelExpOrange": "#FF8C00",
+    "stepsBlue": "#5C6BC0",
+    "caloriesRed": "#E74C3C",
+    "heartRed": "#F44336"
+  },
+  "neutral": {
+    "divider": "#EEEEEE",
+    "dividerDark": "#424242"
+  },
+  "character": {
+    "characterSkin": "#FFB54D",
+    "characterShirt": "#FF8C00",
+    "characterPants": "#5C6BC0",
+    "characterShoes": "#424242"
+  },
+  "backgroundShades": {
+    "bgDark1": "#1A1714",
+    "bgDark2": "#2C2420",
+    "bgDark3": "#3C3630"
+  },
+  "semantic": {
+    "error": "#E74C3C",
+    "success": "#27AE60",
+    "warning": "#FFC107",
+    "info": "#3498DB"
+  },
+  "shadow": "#1F000000"
+}

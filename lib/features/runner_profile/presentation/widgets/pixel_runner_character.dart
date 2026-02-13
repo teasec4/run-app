@@ -1,44 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 
-class PixelRunnerCharacter extends StatefulWidget {
+class PixelRunnerCharacter extends StatelessWidget {
   final double size;
 
   const PixelRunnerCharacter({Key? key, this.size = 120}) : super(key: key);
 
   @override
-  State<PixelRunnerCharacter> createState() => _PixelRunnerCharacterState();
-}
-
-class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _legController;
-
-  @override
-  void initState() {
-    super.initState();
-    _legController = AnimationController(
-      duration: const Duration(milliseconds: 600),
-      vsync: this,
-    )..repeat();
-    _legController.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
-  void dispose() {
-    _legController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final unit = widget.size / 12;
+    final unit = size / 12;
 
     return SizedBox(
-      width: widget.size,
-      height: widget.size,
+      width: size,
+      height: size,
       child: Stack(
         children: [
           // Light background
@@ -144,13 +118,66 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
             ),
           ),
 
-          // Body (rounded)
+          // Upper Jacket (Olympic Blue)
           Positioned(
             top: unit * 3.8,
             left: unit * 4.75,
             child: Container(
               width: unit * 2.5,
-              height: unit * 3.5,
+              height: unit * 2.2,
+              decoration: BoxDecoration(
+                color: Color(0xFF0052CC), // Olympic Blue
+                border: Border.all(color: AppColors.primaryDark, width: 1),
+                borderRadius: BorderRadius.circular(unit * 0.4),
+              ),
+              child: Stack(
+                children: [
+                  // Button 1 (top)
+                  Positioned(
+                    top: unit * 0.4,
+                    left: unit * 1.15,
+                    child: Container(
+                      width: unit * 0.2,
+                      height: unit * 0.2,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Color(0xFF003399),
+                          width: 0.5,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Button 2 (middle)
+                  Positioned(
+                    top: unit * 1.1,
+                    left: unit * 1.15,
+                    child: Container(
+                      width: unit * 0.2,
+                      height: unit * 0.2,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Color(0xFF003399),
+                          width: 0.5,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // Lower Body/Shorts (rounded)
+          Positioned(
+            top: unit * 6,
+            left: unit * 4.75,
+            child: Container(
+              width: unit * 2.5,
+              height: unit * 1.4,
               decoration: BoxDecoration(
                 color: AppColors.characterShirt,
                 border: Border.all(color: AppColors.primaryDark, width: 1),
@@ -165,7 +192,7 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
                     right: 0,
                     child: Container(
                       width: unit * 2.5,
-                      height: unit * 0.8,
+                      height: unit * 0.4,
                       decoration: BoxDecoration(
                         color: AppColors.gold,
                         borderRadius: BorderRadius.circular(unit * 0.2),
@@ -239,9 +266,9 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
             ),
           ),
 
-          // Left Leg - Animated
+          // Left Leg
           Positioned(
-            top: unit * 7.4 + _getLeftLegOffset(unit),
+            top: unit * 7.4,
             left: unit * 4.8,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -289,9 +316,9 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
             ),
           ),
 
-          // Right Leg - Animated
+          // Right Leg
           Positioned(
-            top: unit * 7.4 + _getRightLegOffset(unit),
+            top: unit * 7.4,
             right: unit * 4.8,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -341,25 +368,5 @@ class _PixelRunnerCharacterState extends State<PixelRunnerCharacter>
         ],
       ),
     );
-  }
-
-  double _getLeftLegOffset(double unit) {
-    final animationValue = _legController.value;
-    // Left leg up first, then down
-    if (animationValue < 0.5) {
-      return -unit * animationValue * 1.5; // Moving up
-    } else {
-      return -unit * (1 - animationValue) * 1.5; // Moving down
-    }
-  }
-
-  double _getRightLegOffset(double unit) {
-    final animationValue = _legController.value;
-    // Right leg opposite - down first, then up
-    if (animationValue < 0.5) {
-      return unit * (animationValue) * 1.5; // Moving down
-    } else {
-      return unit * (1 - animationValue) * 1.5; // Moving up
-    }
   }
 }

@@ -6,12 +6,43 @@
     "settings": "设置"
   },
   "stats": {
-    "level": "等级",
-    "experience": "经验值",
-    "steps": "步数",
-    "calories": "卡路里"
-  },
-  "settings": {
+     "level": "等级",
+     "experience": "经验值",
+     "steps": "步数",
+     "calories": "卡路里"
+   },
+   "achievements": {
+     "title": "成就",
+     "first_steps": "初出茅庐",
+     "marathon_runner": "马拉松运动员",
+     "speed_demon": "速度恶魔",
+     "mountain_climber": "登山者",
+     "unlocked": "✓ 已解锁",
+     "locked": "已锁定"
+   },
+   "challenges": {
+     "title": "挑战",
+     "walk_10km": "今天走10公里",
+     "burn_500_cal": "燃烧500卡路里",
+     "7days_streak": "7天连续打卡"
+   },
+   "map": {
+     "title": "地图",
+     "current_location": "当前位置",
+     "coming_soon": "地图即将推出",
+     "todays_route": "今天的路线",
+     "distance": "距离",
+     "duration": "时长",
+     "avg_speed": "平均速度",
+     "saved_routes": "保存的路线",
+     "golden_gate": "金门公园环线",
+     "bay_bridge": "海湾大桥穿越",
+     "marina_district": "船坞区跑步",
+     "easy": "简单",
+     "medium": "中等",
+     "hard": "困难"
+   },
+   "settings": {
     "title": "设置",
     "language": "语言",
     "english": "English",
