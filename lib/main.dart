@@ -10,12 +10,16 @@ import 'core/localization/locale_bloc.dart';
 import 'core/localization/locale_event.dart';
 import 'core/localization/locale_state.dart';
 import 'core/di/service_locator.dart';
+import 'core/storage/goals_storage.dart';
+import 'features/runner_profile/presentation/bloc/health_bloc.dart';
+import 'features/runner_profile/presentation/bloc/health_event.dart';
 import 'presentation/app.dart';
 import 'presentation/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
+  await getIt<GoalsStorage>().init();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -23,6 +27,9 @@ void main() async {
           create: (_) => getIt<LocaleBloc>()..add(const InitLocaleEvent()),
         ),
         BlocProvider(create: (_) => ThemeBloc()..add(const InitThemeEvent())),
+        BlocProvider(
+          create: (_) => getIt<HealthBloc>()..add(const InitHealthEvent()),
+        ),
       ],
       child: const MyApp(),
     ),

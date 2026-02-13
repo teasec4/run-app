@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               padding:const EdgeInsets.all(12) ,
-              child: Text("IN PROGRESS"),
+              child: Text("SOMETHING"),
             )
             
           ],

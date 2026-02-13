@@ -42,16 +42,27 @@
 - [x] DESIGN.md
 - [x] PLAN.md
 
-## Phase 7: Future Enhancements 🔮
+## Phase 7: Health Kit Integration ✅
+- [x] Health package integration
+- [x] HealthKitRepository for data access
+- [x] HealthBloc with sync functionality
+- [x] Real-time steps and calories display
+- [x] Pull-to-refresh synchronization
+- [x] iOS HealthKit permissions
+- [x] Error handling and loading states
+
+## Phase 8: Future Enhancements 🔮
 - [ ] Map integration (Google Maps/Mapbox)
 - [ ] Real GPS tracking
 - [ ] Social features (leaderboards)
 - [ ] Achievements and badges
 - [ ] Cloud synchronization
 - [ ] Push notifications
-- [ ] Health Kit (iOS) / Google Fit (Android) integration
+- [ ] Google Fit (Android) integration
 - [ ] More languages
 - [ ] Animations for achievements
+- [ ] Historical health data
+- [ ] Weekly/monthly statistics
 
 ## Known Issues & TODOs
 

@@ -8,6 +8,8 @@ import '../../core/localization/app_localizations.dart';
 import '../../core/localization/locale_bloc.dart';
 import '../../core/localization/locale_state.dart';
 import '../../core/localization/locale_event.dart';
+import '../../core/di/service_locator.dart';
+import '../../core/storage/goals_storage.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -17,11 +19,21 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late final GoalsStorage _goalsStorage;
+  late int _stepsGoal;
+  late int _caloriesGoal;
+
+  @override
+  void initState() {
+    super.initState();
+    _goalsStorage = getIt<GoalsStorage>();
+    _stepsGoal = _goalsStorage.getStepsGoal();
+    _caloriesGoal = _goalsStorage.getCaloriesGoal();
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final isDarkTheme =
-        Theme.of(context).brightness == Brightness.dark;
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -30,6 +42,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
           l10n.tr('settings.title'),
           style: Theme.of(context).textTheme.headlineMedium,
         ),
+        const SizedBox(height: 24),
+        
+        // Goals section
+        _buildSettingSection(
+          context,
+          'Goals',
+          [
+            _buildGoalSlider(
+              context,
+              'Steps Goal',
+              _stepsGoal,
+              1000,
+              50000,
+              (value) {
+                setState(() => _stepsGoal = value);
+                _goalsStorage.setStepsGoal(value);
+              },
+            ),
+            const SizedBox(height: 16),
+            _buildGoalSlider(
+              context,
+              'Calories Goal',
+              _caloriesGoal,
+              100,
+              2000,
+              (value) {
+                setState(() => _caloriesGoal = value);
+                _goalsStorage.setCaloriesGoal(value);
+              },
+            ),
+          ],
+        ),
+
         const SizedBox(height: 24),
         
         // Language selector
@@ -119,5 +164,45 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-
+  Widget _buildGoalSlider(
+    BuildContext context,
+    String label,
+    int currentValue,
+    int min,
+    int max,
+    Function(int) onChanged,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            Text(
+              currentValue.toString(),
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: AppColors.primary,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Slider(
+          value: currentValue.toDouble(),
+          min: min.toDouble(),
+          max: max.toDouble(),
+          divisions: ((max - min) / 100).toInt(),
+          activeColor: AppColors.primary,
+          onChanged: (value) {
+            onChanged(value.toInt());
+          },
+        ),
+      ],
+    );
+  }
 }
