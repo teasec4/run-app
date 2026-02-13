@@ -35,10 +35,7 @@ class _RunningAppState extends State<RunningApp> {
       builder: (context, state) {
         final l10n = AppLocalizations.of(context);
         return Scaffold(
-          body: SafeArea(
-            bottom: false,
-            child: _screens[_selectedIndex],
-          ),
+          body: SafeArea(bottom: false, child: _screens[_selectedIndex]),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,

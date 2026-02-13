@@ -1,10 +1,10 @@
 {
   "app_title": "跑步应用",
   "navigation": {
-    "home": "主页",
-    "map": "地图",
-    "settings": "设置"
-  },
+     "home": "主页",
+     "map": "地图",
+     "settings": "设置"
+   },
   "stats": {
      "level": "等级",
      "experience": "经验值",
@@ -41,6 +41,11 @@
      "easy": "简单",
      "medium": "中等",
      "hard": "困难"
+   },
+   "emotion_logging": {
+     "title": "心情日志",
+     "coming_soon": "即将推出",
+     "description": "记录您在跑步期间和之后的情绪"
    },
    "settings": {
     "title": "设置",
